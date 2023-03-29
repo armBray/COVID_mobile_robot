@@ -1,0 +1,5 @@
+int16 cells
+float32 direction
+float32 distance
+---
+int32 result
