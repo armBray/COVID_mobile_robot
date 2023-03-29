@@ -1,0 +1,20 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5
+
+  static_map: true
+
+  plugins:
+  - {name: static,           type: "costmap_2d::StaticLayer"}
+  - {name: sensors,           type: "costmap_2d::ObstacleLayer"}
+  - {name: inflation,        type: "costmap_2d::InflationLayer"}
+
+  sensors:
+    subscribe_to_updates: true
+    track_unknown_space: true
+    observation_sources: scan
+    scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}

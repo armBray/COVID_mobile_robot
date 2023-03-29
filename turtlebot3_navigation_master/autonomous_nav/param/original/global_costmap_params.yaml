@@ -1,0 +1,29 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+
+  update_frequency: 5.0
+  publish_frequency: 5.0
+  transform_tolerance: 0.5
+
+  static_map: true
+
+  plugins:
+  - {name: static,           type: "costmap_2d::StaticLayer"}
+  #- {name: voronoi,          type: "costmap_2d::StaticLayer"}
+  - {name: sensor,           type: "costmap_2d::ObstacleLayer"}
+  #- {name: inflation,        type: "costmap_2d::InflationLayer"}
+
+  static:
+    map_topic: /map
+    trinary_costmap: false
+    #first_map_only : true
+    #subscribe_to_updates: true
+  sensor:
+    footprint_clearing_enabled: true
+    combination_method: 1
+    track_unknown_space: true
+  #voronoi:
+    #map_topic: /skel
+    #first_map_only: true
+    #subscribe_to_updates: true

@@ -1,0 +1,19 @@
+<launch>
+
+<!-- MoveBaseSeq node launch and Points Sequence ROS Parameters Loading -->
+
+
+    <!--Run move_base_seqs node-->
+        <node pkg="autonomous_nav" type="send_goals.py" name="send_goals" output="screen">
+
+        <!-- Load Sequence of Points (Cartesian Coordinates wrt "map" RF, in meters) -->
+        <!--     <rosparam param="p_seq">[-0.5,0.5, -4.5,0.5, -4.5,4.5, -4,5, -0.5,5, -3.5,4.5, -0.5,4.5, -0.5,0.5, -1,1, -4,1, -4,4, -1,4, -1,1, -1.5,1.5, -3.5,1.5, -3.5,3.5, -1.5,3.5, -1.5,1.5, -2.5,1.5, -2.5,3.5, -1.5,2.5, -3.5,2.5]</rosparam> -->
+	   <rosparam param="p_seq">[6.7,-0.8, 6.7,-4.8, 5.3,-4.8, 5.3,-0.8, 6,-0.8, 6,-4]</rosparam>
+        <!-- Load Sequence of Desired Yaw Angles (no rotations around x and y axes) in degrees-->
+            <rosparam param="yea_seq">[0,270,180,90,0,270]</rosparam>
+        <!-- <rosparam param="yea_seq">[180,90,45,0,225,0,270,180,180,90,0,270,180,180,90,0,270,180,90,0,180,180]</rosparam> -->
+
+        </node>
+
+</launch>
+
